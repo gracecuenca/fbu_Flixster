@@ -1,7 +1,9 @@
 package com.example.flixster;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,14 +26,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     @NonNull
     @Override
     // creates and inflates a new view
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // get the context and create the inflater
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        // create the view using the item_movie layout
+        View movieView = inflater.inflate(R.layout.item_movie, parent, false);
+        // return new ViewHolder
+        return new ViewHolder(movieView);
     }
 
     @Override
     // binds an inflated view to a new item
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        // get the movie data at the specified position
+        Movie movie = movies.get(position);
+        // populate the view with the movie data
+        holder.tvTitle.setText(movie.getTitle());
+        holder.tvOverview.setText(movie.getOverview());
 
+        // TODO -- set image using Glide
     }
 
     @Override
