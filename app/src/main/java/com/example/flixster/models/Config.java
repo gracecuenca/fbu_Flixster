@@ -10,7 +10,7 @@ public class Config {
     String imageBaseUrl;
     // the poster size to use when fetching images, part of the url
     String posterSize;
-    // the backdrop size to use when fetching imagesl
+    // the backdrop size to use when fetching images
     String backdropSize;
 
     public Config(JSONObject object) throws JSONException {
