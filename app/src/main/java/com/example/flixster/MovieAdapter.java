@@ -33,11 +33,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     public MovieAdapter(ArrayList<Movie> movies) {
         this.movies = movies;
     }
-
     public Config getConfig() {
         return config;
     }
-
     public void setConfig(Config config) {
         this.config = config;
     }
